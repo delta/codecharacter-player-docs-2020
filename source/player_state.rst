@@ -8,7 +8,7 @@ It contains every data structure we use to describe the state of the game.
 
 If you haven't already, you might want to go through the game `overview <overview.html>`_ first, to understand the core game and the various elements that you can control. Once you've got a hang of the game, this page will help you dive deeper into your code.
 
-You might want to checkout `DoubleVec2D <doublevec2d.html>`_ as Dwell.
+You might want to checkout `DoubleVec2D <doublevec2d.html>`_ as well.
 
 State
 =====
@@ -235,9 +235,6 @@ Tower
 				tower.blast()
 			}
 
-Helpers
-=======
-
 Logging Variables
 =================
 
@@ -255,4 +252,86 @@ For example, if you want to print out the properties of a particular Villager, y
 		state: IDLE
 	}
 
+
+
 You can even log the entire `state` variable. Keep in mind, your output will be quite large.
+
+Helpers
+=======
+Along with the game state, we’ve included some helper methods to make it easier for you to implement your logic.
+
+Something useful for you when implementing your logic would be to find the nearest flag position from any given position.
+
+.. cpp:function:: findNearestFlagPosition( const State &state, DoubleVec2D position)
+
+Returns the nearest flag offset from a given
+		
+This function can be used by bots to find the closest flag into which they can move into ::
+
+	auto &bot = state.bots[0];
+	auto nearest_flag = findNearestFlagPosition(state, bot.position);
+
+	// Bot finds the nearest flag and moves into the flag area
+	bot.move(nearest_flag)
+
+.. cpp:function::  findNearestFreePosition( const State &state, DoubleVec2D position)
+
+Returns the nearest free position ( A position on which a tower can be build )
+
+This can be used to find locations to transform into towers to control an area ::
+
+	auto &bot = state.bots[0];
+	auto nearest_free_position = findNearestFreePosition(state, bot.position);
+	
+	// The bot moves into the nearest free position and transforms into a tower
+	bot.transform(nearest_free_position)
+
+This is useful to fortify an area after gaining control over it
+
+.. cpp:function::  getBotById(State &state, int64_t bot_id)
+
+Returns a ``Bot`` by reference when provided an actor id
+
+This comes in handy when assigning different bots different tasks and keeping track of their progress
+
+It can be used in the following way ::
+
+	auto &bot_blast = getBotById(state, 1); // Returns a reference to bot with actor id 1
+	bot_blast.blast(DoubleVec2D(10, 10)); // Making this bot blast
+
+	auto &bot_transform = getBotById(state, 2); // Reference to bot with id 2
+	bot_transform.transform(DoubleVec2D(3, 7)); // Making this bot move to position (3, 7) and transform three
+
+	auto &bot_move = getBotById(state, 3); // Bot with actor id 3
+	bot_move.move(DoubleVec2D(5, 5)); // Making this bot move into a specific position like a flag
+
+``NOTE`` : Returns ``Bot::null`` if no bot exists with the given actor id. ``Bot::null`` is basically a bot constructed with an id of ``-1``
+
+.. cpp:function:: getTowerById(State &state, int64_t tower_id)
+
+Returns a ``Tower`` by reference given an actor id
+
+It can be used in the following way ::  
+
+	auto &tower_blast = getTowerById(state, 12); // Returns reference to tower with actor id 12
+	tower_blast.blast();
+
+``NOTE`` : Returns ``Tower::null`` if no tower exists with the given tower id . ``Tower::null`` is a tower constructed with an id of ``-1``
+
+Bonus
+======
+
+.. cpp:function:: findNearestOffset(const State &state, Vec2D position, std::function<bool(TerrainType type, uint64_t position_count)>)
+
+	A general purpose function with which you can find the nearest target position from the source position which satisfies a condition defined by you. 
+
+	``NOTE`` : Each offset in the map will be checked against this function which is passed the terrain type of that offset and the total number of bots or towers in that offset  
+
+	 It may look a bit scary but can be utilized using this function using C++ Lambda functions.
+	 
+	 Let us look at an example where we find the nearest position where there are no bots or towers ::
+
+		auto nearest_desolate_position = [](TerrainType terrain, uint64_t actor_count){
+			// Returns any position with actor count of 0 irrespective of terrain
+			return (actor_count == 0); 
+		}
