@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Constants &mdash; Codecharacter Player Documentation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Codecharacter Player Documentation  documentation" href="index.html"/>
+        <link rel="next" title="DoubleVec2D" href="doublevec2d.html"/>
+        <link rel="prev" title="Rules" href="rules.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Codecharacter Player Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Rules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#map-constants">Map Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bot-constants">Bot Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tower-constants">Tower Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doublevec2d.html">DoubleVec2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player_state.html">Player State</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Codecharacter Player Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Constants</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/constants.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="constants">
+<h1>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h1>
+<p>These are the magic constants that affect the game logic. You are free to access any of these constants from your code - they are in global scope.</p>
+<div class="section" id="map-constants">
+<h2>Map Constants<a class="headerlink" href="#map-constants" title="Permalink to this headline">¶</a></h2>
+<p>You’ll probably be using this constant frequently while writing code.</p>
+<dl class="var">
+<dt id="_CPPv28MAP_SIZE">
+<span id="MAP_SIZE__l"></span>long <code class="descclassname"></code><code class="descname">MAP_SIZE</code> = 30<a class="headerlink" href="#_CPPv28MAP_SIZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of tiles along the side of the map.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bot-constants">
+<h2>Bot Constants<a class="headerlink" href="#bot-constants" title="Permalink to this headline">¶</a></h2>
+<dl class="var">
+<dt id="_CPPv210MAX_BOT_HP">
+<span id="MAX_BOT_HP__l"></span>long <code class="descclassname"></code><code class="descname">MAX_BOT_HP</code> = 200<a class="headerlink" href="#_CPPv210MAX_BOT_HP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum HP for a bot.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv212MAX_NUM_BOTS">
+<span id="MAX_NUM_BOTS__l"></span>long <code class="descclassname"></code><code class="descname">MAX_NUM_BOTS</code> = 250<a class="headerlink" href="#_CPPv212MAX_NUM_BOTS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum number of bots per player.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv214NUM_BOTS_START">
+<span id="NUM_BOTS_START__l"></span>long <code class="descclassname"></code><code class="descname">NUM_BOTS_START</code> = 20<a class="headerlink" href="#_CPPv214NUM_BOTS_START" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of bots the player begins the game with.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv29BOT_SPEED">
+<span id="BOT_SPEED__l"></span>long <code class="descclassname"></code><code class="descname">BOT_SPEED</code> = 6<a class="headerlink" href="#_CPPv29BOT_SPEED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Units of distance the bot covers per turn.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv223BOT_BLAST_IMPACT_RADIUS">
+<span id="BOT_BLAST_IMPACT_RADIUS__l"></span>long <code class="descclassname"></code><code class="descname">BOT_BLAST_IMPACT_RADIUS</code> = 2<a class="headerlink" href="#_CPPv223BOT_BLAST_IMPACT_RADIUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum distance in tiles around the bot when on blasting the bot inflicts damage</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv223BOT_BLAST_DAMAGE_POINTS">
+<span id="BOT_BLAST_DAMAGE_POINTS__l"></span>long <code class="descclassname"></code><code class="descname">BOT_BLAST_DAMAGE_POINTS</code> = 50<a class="headerlink" href="#_CPPv223BOT_BLAST_DAMAGE_POINTS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum damage a bot can inflict on an enemy unit on blasting</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv219BOT_SPAWN_FREQUENCY">
+<span id="BOT_SPAWN_FREQUENCY__l"></span>long <code class="descclassname"></code><code class="descname">BOT_SPAWN_FREQUENCY</code> = 1<a class="headerlink" href="#_CPPv219BOT_SPAWN_FREQUENCY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of bots spawned per turn.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tower-constants">
+<h2>Tower Constants<a class="headerlink" href="#tower-constants" title="Permalink to this headline">¶</a></h2>
+<dl class="var">
+<dt id="_CPPv212MAX_TOWER_HP">
+<span id="MAX_TOWER_HP__l"></span>long <code class="descclassname"></code><code class="descname">MAX_TOWER_HP</code> = 600<a class="headerlink" href="#_CPPv212MAX_TOWER_HP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum HP for a tower.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv214MAX_NUM_TOWERS">
+<span id="MAX_NUM_TOWERS__l"></span>long <code class="descclassname"></code><code class="descname">MAX_NUM_TOWERS</code> = 150<a class="headerlink" href="#_CPPv214MAX_NUM_TOWERS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum number of towers per player.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv225TOWER_BLAST_IMPACT_RADIUS">
+<span id="TOWER_BLAST_IMPACT_RADIUS__l"></span>long <code class="descclassname"></code><code class="descname">TOWER_BLAST_IMPACT_RADIUS</code> = 6<a class="headerlink" href="#_CPPv225TOWER_BLAST_IMPACT_RADIUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum distance in tiles around the tower when on blasting the tower inflicts damage</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv225TOWER_BLAST_DAMAGE_POINTS">
+<span id="TOWER_BLAST_DAMAGE_POINTS__l"></span>long <code class="descclassname"></code><code class="descname">TOWER_BLAST_DAMAGE_POINTS</code> = 500<a class="headerlink" href="#_CPPv225TOWER_BLAST_DAMAGE_POINTS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum damage a tower can inflict on an enemy unit on blasting</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="_CPPv219TOWER_MIN_BLAST_AGE">
+<span id="TOWER_MIN_BLAST_AGE__l"></span>long <code class="descclassname"></code><code class="descname">TOWER_MIN_BLAST_AGE</code> = 3<a class="headerlink" href="#_CPPv219TOWER_MIN_BLAST_AGE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum number of turns a tower must be alive to blast</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="doublevec2d.html" class="btn btn-neutral float-right" title="DoubleVec2D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rules.html" class="btn btn-neutral" title="Rules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Delta Force.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
