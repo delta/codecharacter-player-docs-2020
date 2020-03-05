@@ -13,6 +13,8 @@
 
   
   
+    <link rel="shortcut icon" href="_static/plain_bot.png"/>
+  
   
   
 
@@ -36,7 +38,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Codecharacter Player Documentation  documentation" href="index.html"/>
-        <link rel="next" title="Constants" href="constants.html"/>
+        <link rel="next" title="Default Code" href="default_code.html"/>
         <link rel="prev" title="Overview" href="overview.html"/> 
 
   
@@ -110,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#furthur-reading">Furthur Reading</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="default_code.html">Default Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="doublevec2d.html">DoubleVec2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="player_state.html">Player State</a></li>
@@ -182,6 +185,9 @@
 <div class="section" id="game-board-map">
 <h2>Game Board/Map<a class="headerlink" href="#game-board-map" title="Permalink to this headline">¶</a></h2>
 <p>The map is a square 30x30 grid of tiles. The origin is at the top-left corner. The X and Y coordinates in Vec2D corresponding to moving <em>down</em> and moving <em>right</em> respectively, similar to how a 2D array is indexed.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/grid.png"><img alt="Map Grid" src="_images/grid.png" style="width: 800px;" /></a>
+</div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">You can get the width / height of the square map through the <code class="docutils literal"><span class="pre">MAP_SIZE</span></code> constant</p>
@@ -218,6 +224,9 @@ For e.g., if a bot issues transform at (2.2, 2.5), there should be no unit of ei
 <p class="last">You can use <code class="docutils literal"><span class="pre">state.getClosestUnoccupiedOffset(position)</span></code> to get a tile nearby which isn’t occupied by any unit.</p>
 </div>
 <p>After blasting / transforming, the bot dies. It is removed from the player state in the next turn.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/player_bots.png"><img alt="Player Bots" src="_images/player_bots.png" style="width: 800px;" /></a>
+</div>
 </div>
 <div class="section" id="towers">
 <h3>Towers<a class="headerlink" href="#towers" title="Permalink to this headline">¶</a></h3>
@@ -226,6 +235,9 @@ incurs damage to all enemy units nearby and the blast damage decreases as distan
 <p>A newly created tower cannot blast for a specific number of turns since its built (<code class="docutils literal"><span class="pre">MIN_TOWER_AGE</span></code>).</p>
 <p>Towers can be strategically placed to defend your flag area.</p>
 <p>After blasting, the tower dies. It is removed from the player state after one turn.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/player_towers.png"><img alt="Player Towers" src="_images/player_towers.png" style="width: 800px;" /></a>
+</div>
 </div>
 </div>
 <div class="section" id="starting-the-game">
@@ -308,7 +320,7 @@ If both players have an equal score at the end of 1000 turns, the match is decla
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="constants.html" class="btn btn-neutral float-right" title="Constants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="default_code.html" class="btn btn-neutral float-right" title="Default Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="overview.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

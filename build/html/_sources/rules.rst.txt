@@ -7,6 +7,10 @@ Game Board/Map
 
 The map is a square 30x30 grid of tiles. The origin is at the top-left corner. The X and Y coordinates in Vec2D corresponding to moving *down* and moving *right* respectively, similar to how a 2D array is indexed.
 
+.. figure:: _static/grid.png
+   :width: 800px
+   :alt: Map Grid
+
 .. Tip:: You can get the width / height of the square map through the ``MAP_SIZE`` constant
 
 Positions
@@ -47,6 +51,10 @@ For e.g., if a bot issues transform at (2.2, 2.5), there should be no unit of ei
 
 After blasting / transforming, the bot dies. It is removed from the player state in the next turn.
 
+.. figure:: _static/player_bots.png
+   :width: 800px
+   :alt: Player Bots
+
 Towers
 --------
 
@@ -58,6 +66,10 @@ A newly created tower cannot blast for a specific number of turns since its buil
 Towers can be strategically placed to defend your flag area.
 
 After blasting, the tower dies. It is removed from the player state after one turn.
+
+.. figure:: _static/player_towers.png
+   :width: 800px
+   :alt: Player Towers
 
 Starting the Game
 =================
