@@ -7,6 +7,7 @@ Welcome to Code Character's Player documentation!
 
    overview.rst
    rules.rst
+   default_code.rst
    constants.rst
    doublevec2d.rst
    player_state.rst
