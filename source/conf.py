@@ -55,12 +55,15 @@ html_sidebars = {
     '**': [
         'overview.rst',
         'rules.rst',
+        'default_code.rst',
         'constants.rst',
         'doublevec2d.rst',
         'player_state.rst',
         'tips.rst'
     ]
 }
+
+html_favicon = '_static/plain_bot.png'
 
 source_suffix = '.rst'
 
