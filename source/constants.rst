@@ -14,6 +14,10 @@ You'll probably be using this constant frequently while writing code.
 	Number of tiles along the side of the map.
 
 
+.. cpp:var:: vector<DoubleVec2D> PLAYER_BASE_POSITIONS = {{0.5, 0.5}, {29.5, 29.5}}
+
+	Spawn positions of both players.
+
 Bot Constants
 =============
 
@@ -67,3 +71,12 @@ Tower Constants
 .. cpp:var:: long TOWER_MIN_BLAST_AGE = 3
 
 	The minimum number of turns a tower must be alive to blast
+
+Miscellaneous Constants
+=======================
+
+.. cpp:var:: int64_t NUM_TURNS = 500
+
+	Number of turns in the game.
+
+

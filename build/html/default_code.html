@@ -195,15 +195,15 @@
     <span class="c1">// Bots can move to any reachable location on the map.</span>
     <span class="c1">// Let&#39;s make bots move to all flag locations</span>
 
-    <span class="c1">// You can use auto instead of an explicit type</span>
     <span class="kt">size_t</span> <span class="n">used_bots</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="c1">// Range based loops are convenient to use. We use a reference to</span>
     <span class="c1">// ensure that our changes are reflected and not made on a copy!</span>
+    <span class="c1">// You can use auto instead of an explicit type</span>
     <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">bot</span> <span class="p">:</span> <span class="n">state</span><span class="p">.</span><span class="n">bots</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Let&#39;s not use up all our bots just for these. So, we will only use a</span>
-        <span class="c1">// maximum of 15 bots here.</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">used_bots</span> <span class="o">&gt;=</span> <span class="n">state</span><span class="p">.</span><span class="n">flag_offsets</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">||</span> <span class="n">used_bots</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="c1">// maximum of 18 bots here.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">used_bots</span> <span class="o">&gt;</span> <span class="n">state</span><span class="p">.</span><span class="n">flag_offsets</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">||</span> <span class="n">used_bots</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>
             <span class="k">break</span><span class="p">;</span>
 
         <span class="c1">// Make sure that you do not access a vector beyond it&#39;s size or else,</span>
@@ -221,8 +221,8 @@
 
     <span class="c1">// Before that we ensure that we have atleast one extra bot left</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">bots</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">used_bots</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// See the usage of constant value PLAYER2_BASE_POSITION</span>
-        <span class="n">state</span><span class="p">.</span><span class="n">bots</span><span class="p">[</span><span class="n">used_bots</span><span class="p">].</span><span class="n">blast</span><span class="p">(</span><span class="n">PLAYER2_BASE_POSITION</span><span class="p">);</span>
+        <span class="c1">// See the usage of constant value PLAYER_BASE_POSITIONS</span>
+        <span class="n">state</span><span class="p">.</span><span class="n">bots</span><span class="p">[</span><span class="n">used_bots</span><span class="p">].</span><span class="n">blast</span><span class="p">(</span><span class="n">PLAYER_BASE_POSITIONS</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
         <span class="n">used_bots</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -230,7 +230,7 @@
     <span class="c1">// Let&#39;s try to transform all of the remaining bots near the other end of</span>
     <span class="c1">// the map i.e., (MAP_SIZE - 1, MAP_SIZE - 1) Note that you cannot construct</span>
     <span class="c1">// / move to coordinates where either x = MAP_SIZE or y = MAP_SIZE</span>
-    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
 
     <span class="c1">// The bots can also be traversed like a usual array using an index</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="n">used_bots</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">state</span><span class="p">.</span><span class="n">bots</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>

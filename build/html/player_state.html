@@ -302,8 +302,8 @@ int64_t <code class="descclassname"></code><code class="descname">score</code><a
 
 <dl class="member">
 <dt id="_CPPv2N3Bot5stateE">
-<span id="Bot::state__SoldierState"></span>SoldierState <code class="descclassname"></code><code class="descname">state</code><a class="headerlink" href="#_CPPv2N3Bot5stateE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The current state of the soldier. This member tells you what the soldier is doing right now, and has values <strong>IDLE</strong>,
+<span id="Bot::state__BotState"></span>BotState <code class="descclassname"></code><code class="descname">state</code><a class="headerlink" href="#_CPPv2N3Bot5stateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The current state of the bot. This member tells you what the soldier is doing right now, and has values <strong>IDLE</strong>,
 <strong>BLAST</strong>, <strong>TRANSFORM</strong>, <strong>ATTACK</strong> AND <strong>DEAD</strong>.</p>
 <p>For example, to check for all your bots who are currently moving, you could do</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">bot</span> <span class="p">:</span> <span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">)</span> <span class="p">{</span>
@@ -477,8 +477,8 @@ The tower’s blast is also much powerful than a bot’s blast.</p>
 <span id="findNearestFlagPosition__StateCR.DoubleVec2D"></span><code class="descclassname"></code><code class="descname">findNearestFlagPosition</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, DoubleVec2D <em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223findNearestFlagPositionRK5State11DoubleVec2D" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
-<p>Returns the nearest flag offset from a given</p>
-<p>This function can be used by bots to find the closest flag into which they can move into</p>
+<p>Returns the nearest flag position from a given position. This function can be used by bots to find the closest flag to which they
+can move to</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">bot</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="n">auto</span> <span class="n">nearest_flag</span> <span class="o">=</span> <span class="n">findNearestFlagPosition</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">bot</span><span class="o">.</span><span class="n">position</span><span class="p">);</span>
 
@@ -487,27 +487,12 @@ The tower’s blast is also much powerful than a bot’s blast.</p>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="_CPPv223findNearestFreePositionRK5State11DoubleVec2D">
-<span id="findNearestFreePosition__StateCR.DoubleVec2D"></span><code class="descclassname"></code><code class="descname">findNearestFreePosition</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, DoubleVec2D <em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223findNearestFreePositionRK5State11DoubleVec2D" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p>Returns the nearest free position ( A position on which a tower can be build )</p>
-<p>This can be used to find locations to transform into towers to control an area</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">bot</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="n">auto</span> <span class="n">nearest_free_position</span> <span class="o">=</span> <span class="n">findNearestFreePosition</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">bot</span><span class="o">.</span><span class="n">position</span><span class="p">);</span>
-
-<span class="o">//</span> <span class="n">The</span> <span class="n">bot</span> <span class="n">moves</span> <span class="n">into</span> <span class="n">the</span> <span class="n">nearest</span> <span class="n">free</span> <span class="n">position</span> <span class="ow">and</span> <span class="n">transforms</span> <span class="n">into</span> <span class="n">a</span> <span class="n">tower</span>
-<span class="n">bot</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">nearest_free_position</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This is useful to fortify an area after gaining control over it</p>
-<dl class="function">
 <dt id="_CPPv210getBotByIdR5State7int64_t">
 <span id="getBotById__StateR.int64_t"></span><code class="descclassname"></code><code class="descname">getBotById</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, int64_t <em>bot_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv210getBotByIdR5State7int64_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
-<p>Returns a <code class="docutils literal"><span class="pre">Bot</span></code> by reference when provided an actor id</p>
-<p>This comes in handy when assigning different bots different tasks and keeping track of their progress</p>
+<p>Returns the corresponding <code class="docutils literal"><span class="pre">Bot</span></code> by reference when given the bot’s id. This comes in handy when assigning different bots different
+tasks and keeping track of their progress</p>
 <p>It can be used in the following way</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">bot_blast</span> <span class="o">=</span> <span class="n">getBotById</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="o">//</span> <span class="n">Returns</span> <span class="n">a</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">bot</span> <span class="k">with</span> <span class="n">actor</span> <span class="nb">id</span> <span class="mi">1</span>
 <span class="n">bot_blast</span><span class="o">.</span><span class="n">blast</span><span class="p">(</span><span class="n">DoubleVec2D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span> <span class="o">//</span> <span class="n">Making</span> <span class="n">this</span> <span class="n">bot</span> <span class="n">blast</span>
@@ -519,39 +504,45 @@ The tower’s blast is also much powerful than a bot’s blast.</p>
 <span class="n">bot_move</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">DoubleVec2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span> <span class="o">//</span> <span class="n">Making</span> <span class="n">this</span> <span class="n">bot</span> <span class="n">move</span> <span class="n">into</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">position</span> <span class="n">like</span> <span class="n">a</span> <span class="n">flag</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">NOTE</span></code> : Returns <code class="docutils literal"><span class="pre">Bot::null</span></code> if no bot exists with the given actor id. <code class="docutils literal"><span class="pre">Bot::null</span></code> is basically a bot constructed with an id of <code class="docutils literal"><span class="pre">-1</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Returns <code class="docutils literal"><span class="pre">Bot::null</span></code> if no bot exists with the given bot id. <code class="docutils literal"><span class="pre">Bot::null</span></code> is basically a bot constructed with an id of
+<code class="docutils literal"><span class="pre">-1</span></code></p>
+</div>
 <dl class="function">
 <dt id="_CPPv212getTowerByIdR5State7int64_t">
 <span id="getTowerById__StateR.int64_t"></span><code class="descclassname"></code><code class="descname">getTowerById</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, int64_t <em>tower_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv212getTowerByIdR5State7int64_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
-<p>Returns a <code class="docutils literal"><span class="pre">Tower</span></code> by reference given an actor id</p>
-<p>It can be used in the following way</p>
+<p>Returns the corresponding <code class="docutils literal"><span class="pre">Tower</span></code> by reference when given the tower’s id. It can be used in the following way</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">tower_blast</span> <span class="o">=</span> <span class="n">getTowerById</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span> <span class="o">//</span> <span class="n">Returns</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">tower</span> <span class="k">with</span> <span class="n">actor</span> <span class="nb">id</span> <span class="mi">12</span>
 <span class="n">tower_blast</span><span class="o">.</span><span class="n">blast</span><span class="p">();</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">NOTE</span></code> : Returns <code class="docutils literal"><span class="pre">Tower::null</span></code> if no tower exists with the given tower id . <code class="docutils literal"><span class="pre">Tower::null</span></code> is a tower constructed with an id of <code class="docutils literal"><span class="pre">-1</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Returns <code class="docutils literal"><span class="pre">Tower::null</span></code> if no tower exists with the given tower id . <code class="docutils literal"><span class="pre">Tower::null</span></code> is a tower constructed with an id of <code class="docutils literal"><span class="pre">-1</span></code></p>
+</div>
 </div>
 <div class="section" id="bonus">
 <h2>Bonus<a class="headerlink" href="#bonus" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="_CPPv217findNearestOffsetRK5State5Vec2DNSt8functionIFb11TerrainType8uint64_tEEE">
 <code class="descclassname"></code><code class="descname">findNearestOffset</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, Vec2D <em>position</em>, std::function&lt;bool<span class="sig-paren">(</span>TerrainType type, uint64_t position_count<span class="sig-paren">)</span>&gt;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217findNearestOffsetRK5State5Vec2DNSt8functionIFb11TerrainType8uint64_tEEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>A general purpose function with which you can find the nearest target position from the source position which satisfies a condition defined by you.</p>
-<p><code class="docutils literal"><span class="pre">NOTE</span></code> : Each offset in the map will be checked against this function which is passed the terrain type of that offset and the total number of bots or towers in that offset</p>
-<blockquote>
-<div><p>It may look a bit scary but can be utilized using this function using C++ Lambda functions.</p>
-<p>Let us look at an example where we find the nearest position where there are no bots or towers</p>
+<dd></dd></dl>
+
+<p>A general purpose function with which you can find the nearest target position from the source position which satisfies a condition
+defined by you.</p>
+<p>Each offset in the map will be checked against this function which is passed the terrain type of that offset and the total
+number of bots or towers in that offset</p>
+<p>It may look a bit scary but can be utilized using this function using C++ Lambda functions. Let us look at an example where we find
+the nearest position where there are no bots or towers</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">nearest_desolate_position</span> <span class="o">=</span> <span class="p">[](</span><span class="n">TerrainType</span> <span class="n">terrain</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">actor_count</span><span class="p">){</span>
         <span class="o">//</span> <span class="n">Returns</span> <span class="nb">any</span> <span class="n">position</span> <span class="k">with</span> <span class="n">actor</span> <span class="n">count</span> <span class="n">of</span> <span class="mi">0</span> <span class="n">irrespective</span> <span class="n">of</span> <span class="n">terrain</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">actor_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div></blockquote>
-</dd></dl>
-
 </div>
 </div>
 
