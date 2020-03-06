@@ -36,11 +36,11 @@ Game Rules
 Codecharacter is a game of strategic resource management. The objective of the game is to occupy the flag area on the
 map and defend it from the enemy troops.
 
-Your troops consists of **Bots** and **Towers**.
+Your troop consists of **Bots** and **Towers**.
 
 **Bot** - Unit that can move across the map and attack opponent units by blasting. A bot can also transform to a tower.
 
-**Tower** - Unit that is stationary but can suicide blast and is much stronger and powerful than a bot.
+**Tower** - Stationary and more powerful units that can suicide blast and act as a barrier to bots from moving through.
 
 .. figure:: _static/actors.png
    :width: 800px
@@ -49,14 +49,14 @@ Your troops consists of **Bots** and **Towers**.
 Towers occupy a 1x1 unit square area on the map and bots cannot move through a tower. Towers are created when a bot transforms 
 into one.
 
-The map has two types of terrain : **Land**, **Water** and **Flag**. Water terrain is inaccessible to bots.
+The map has three types of terrain : **Land**, **Water** and **Flag**. Water terrain is inaccessible to bots.
 Land or flag terrain that is occupied by a tower is also not accessible to bots.
 
 .. figure:: _static/tiles.png
    :width: 800px
    :alt: Tiles
 
-Tower can only be constructed on land. A specific number of bots are spawned every turn.
+Tower can only be constructed on land/flag. A specific number of bots are spawned every turn.
 
 This is how a typical game map looks like
 
@@ -70,7 +70,7 @@ You are given a fixed number of instructions you can execute every turn. Exceedi
 Exceeding the total instructions limit by an excessive amount makes you lose the entire match, so ensure that you keep your code
 as short and efficient as possible!
 
-.. warning:: This is probably enough for you to get a start, but you might want to take the time to read the complete rules in the Rules section.
+.. note:: This is probably enough for you to get a start, but you might want to take the time to read the complete rules in the Rules section.
 
 Code Guide
 ----------

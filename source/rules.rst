@@ -5,7 +5,7 @@ Rules
 Game Board/Map
 ==============
 
-The map is a square 30x30 grid of tiles. The origin is at the top-left corner. The X and Y coordinates in Vec2D corresponding to moving *down* and moving *right* respectively, similar to how a 2D array is indexed.
+The map is a 30x30 square grid. The origin is at the top-left corner. The X and Y coordinates in Vec2D corresponding to moving *down* and moving *right* respectively, similar to how a 2D array is indexed.
 
 .. figure:: _static/grid.png
    :width: 800px
@@ -22,8 +22,8 @@ can be floating point values.
 Each tower unit occupies one tile of the map bounded by ``(x, y)``, ``(x + 1, y)``, ``(x, y + 1)`` and ``(x + 1, y + 1)``, where
 x and y are integral values. You will be given the midpoint of the tower as the position of the tower. 
 
-The map has two different types of terrain - Land and Water. Water is inaccessible to all units.
-A bot cannot be at the position blocked by a tower.
+The map has three different types of terrain - Land, Flag and Water. Water is inaccessible to all units. Towers can only be
+constructed on land and flag. A bot cannot be at the position blocked by a tower.
 
 Units
 =====
@@ -34,10 +34,11 @@ Bots
 ---------
 
 Bots can move and blast. They have low HP, blast range and blast damage. They can move to any position reachable 
-in the map and blast, and incurring damage only to the enemy units nearby i.e., there is no friendly fire. The blast 
-damage reduces linearly as distance from bot reduces. Hence, the closer the bot is to the enemy unit, higher the damage incurred.
+in the map and blast, incurring damage only to the enemy units nearby i.e., there is no friendly fire. The blast 
+damage reduces linearly as distance from bot reduces. Hence, the closer the bot is to the enemy unit, higher the 
+damage incurred.
 
-.. Tip:: You can access maximum bot blast damage and range using ``BOT_BLAST_IMPACT_DAMAGE`` and ``BOT_BLAST_IMPACT_RADIUS`` respectively.
+.. Tip:: You can access maximum bot blast damage and range using ``BOT_BLAST_DAMAGE_POINTS`` and ``BOT_BLAST_IMPACT_RADIUS`` respectively.
 
 Bots also have the ability to transform to a tower. The HP of the transformed tower is proportional to the remaining HP
 of the bot that transformed.
@@ -61,11 +62,11 @@ Towers
 Towers can only blast. They have much higher HP and blast power compared to a bot. Similar to bot, on blasting, a tower 
 incurs damage to all enemy units nearby and the blast damage decreases as distance to enemy unit increases.
 
-A newly created tower cannot blast for a specific number of turns since its built (``MIN_TOWER_AGE``).
+A newly created tower cannot blast for a specific number of turns since its built (``TOWER_MIN_BLAST_AGE``).
 
 Towers can be strategically placed to defend your flag area.
 
-After blasting, the tower dies. It is removed from the player state after one turn.
+After blasting, the tower dies. It is removed from the state after one turn.
 
 .. figure:: _static/player_towers.png
    :width: 800px
@@ -74,7 +75,7 @@ After blasting, the tower dies. It is removed from the player state after one tu
 Starting the Game
 =================
 
-Each player begins with a set numbers of bots ``NUM_BOTS_START`` in their corner of the map ``PLAYER_BOT_POSITIONS[0]``. 
+Each player begins with a set numbers of bots ``NUM_BOTS_START`` in their corner of the map ``PLAYER_BASE_POSITIONS[0]``. 
 
 Bots are auto spawned at a given rate every turn at the player's base position.
 
@@ -90,28 +91,31 @@ all of your commands and positions for you.
 Goal
 ====
 
-Every turn the player's ``turn score`` is calculated by the number of bots and towers in flag tiles.
-
-The turn score is calculated as follows,
+Every turn the player's ``turn_score`` is calculated by the number of bots and towers in flag tiles. The turn score is calculated as 
+follows,
 
 .. code-block:: python
 
 	turn_score = (num_bots_in_flag_tiles * BOT_SCORE_MULTIPLER) 
 		+ (num_towers_in_flag_tiles * TOWER_SCORE_MULTIPLER)
 
-At the end of a turn, the game score of whichever player has higher ``turn score`` is increased by one.
+At the end of a turn, the game score of whichever player has higher ``turn score`` is increased by **one**. 
 
 The player with highest score at the end of the game wins!
+
+.. Tip:: ``TOWER_SCORE_MULTIPLIER`` is much greater than ``BOT_SCORE_MULTIPLIER``, so constructing towers in flag
+		area has higher contribution to score.
 
 A Turn
 ======
 
-Players take turns giving commands to their troops. On each turn, your code's ``Update`` method is called, and you can use the state of the game to make decisions on what you'd like your units to do in that turn.
+Players take turns giving commands to their troops. On each turn, your code's ``update`` method is called, and you can use the state 
+of the game to make decisions on what you'd like your units to do in that turn.
 
-You can issue issue commands to your bots and towers at every turn in the game.
+You can issue commands to your bots and towers at every turn in the game.
 
-You can give any commands to any of your units in each turn, but note that each actor can only accept one command. You cannot command 
-a bot to blast and transform in the after one for example.
+You can give any commands to any of your units in each turn, but note that each unit can only accept one command. For example, 
+you cannot command a bot to blast and transform in the same turn.
 
 There are a total of ``NUM_TURNS`` turns in a game.
 
@@ -124,8 +128,12 @@ You can either order your bot to
 1. Move to a location on the map (``bot.move(location)``), where ``location`` is of type ``DoubleVec2D``
 2. Blast at the current position (``bot.blast()``)
 3. Move and Blast at a different position (``bot.blast(position)``), where ``position`` is of type ``DoubleVec2D``
-4. Transform to a tower in the current tile (``bot.transform()``)
+4. Transform to a tower in the current tile (``bot.transform()``).
 5. Transform to a tower at a different position (``bot.transform(position)``)
+
+.. note:: Once a bot is told to transform, it keeps trying to transform every turn until the requested transform position is free. 
+	Issuing a new command to the bot moves it to the new state. This applies to move as well i.e., Bot keeps trying to move to the
+	requested destination every turn even if the destination is unreachable. If the destination becomes reachable, the bot will move.
 
 Tower Commands
 -----------------

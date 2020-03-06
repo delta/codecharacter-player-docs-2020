@@ -187,20 +187,20 @@ in our favorite language C++ :)</p>
 <h2>Game Rules<a class="headerlink" href="#game-rules" title="Permalink to this headline">¶</a></h2>
 <p>Codecharacter is a game of strategic resource management. The objective of the game is to occupy the flag area on the
 map and defend it from the enemy troops.</p>
-<p>Your troops consists of <strong>Bots</strong> and <strong>Towers</strong>.</p>
+<p>Your troop consists of <strong>Bots</strong> and <strong>Towers</strong>.</p>
 <p><strong>Bot</strong> - Unit that can move across the map and attack opponent units by blasting. A bot can also transform to a tower.</p>
-<p><strong>Tower</strong> - Unit that is stationary but can suicide blast and is much stronger and powerful than a bot.</p>
+<p><strong>Tower</strong> - Stationary and more powerful units that can suicide blast and act as a barrier to bots from moving through.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_images/actors.png"><img alt="Player Actors" src="_images/actors.png" style="width: 800px;" /></a>
 </div>
 <p>Towers occupy a 1x1 unit square area on the map and bots cannot move through a tower. Towers are created when a bot transforms
 into one.</p>
-<p>The map has two types of terrain : <strong>Land</strong>, <strong>Water</strong> and <strong>Flag</strong>. Water terrain is inaccessible to bots.
+<p>The map has three types of terrain : <strong>Land</strong>, <strong>Water</strong> and <strong>Flag</strong>. Water terrain is inaccessible to bots.
 Land or flag terrain that is occupied by a tower is also not accessible to bots.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_images/tiles.png"><img alt="Tiles" src="_images/tiles.png" style="width: 800px;" /></a>
 </div>
-<p>Tower can only be constructed on land. A specific number of bots are spawned every turn.</p>
+<p>Tower can only be constructed on land/flag. A specific number of bots are spawned every turn.</p>
 <p>This is how a typical game map looks like</p>
 <div class="figure">
 <a class="reference internal image-reference" href="_images/map.png"><img alt="Typical map" src="_images/map.png" style="width: 800px;" /></a>
@@ -209,8 +209,8 @@ Land or flag terrain that is occupied by a tower is also not accessible to bots.
 <p>You are given a fixed number of instructions you can execute every turn. Exceeding the limit on a turn makes you skip the turn.
 Exceeding the total instructions limit by an excessive amount makes you lose the entire match, so ensure that you keep your code
 as short and efficient as possible!</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p class="last">This is probably enough for you to get a start, but you might want to take the time to read the complete rules in the Rules section.</p>
 </div>
 </div>
