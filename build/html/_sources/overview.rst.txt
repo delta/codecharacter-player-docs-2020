@@ -92,8 +92,7 @@ form of command variables that you set each turn.
 	// Checking if the last tile of the map is valid to construct a tower on
 	// Notice how constants like MAP_SIZE exist for your ease. See the complete
 	// list of constants in the constants tab to the left
-	if (state.map[MAP_SIZE - 1][MAP_SIZE - 1] == TerrainType::LAND) {
-		...
+	if (state.map[MAP_SIZE - 1][MAP_SIZE - 1].type == TerrainType::LAND) {
 	}
 
 	// Issuing a command to your second bot to move to position (3, 3) in map
@@ -110,7 +109,7 @@ form of command variables that you set each turn.
 	// Issuing a command to send a bot to a flag location and transforming
 	// to a tower. Notice the usage of Vec2D, a utility class that's predefined.
 	// All representations of positions and offsets in the game are DoubleVec2D.
-	DoubleVec2D flag_position = state.flags[0];
+	DoubleVec2D flag_position = state.flag_offsets[0];
 	state.bots[0].transform(flag_position);
 
 	// Issuing a specific command to all towers to blast
@@ -118,7 +117,7 @@ form of command variables that you set each turn.
 	// Notice that range based for-loops can be used.
 	// Remember to add the & while iterating, otherwise you'll be modifying
 	// be modifying a copy of the tower.
-	for (auto& tower : towers) {
+	for (auto& tower : state.towers) {
 		tower.blast();
 	}
 
