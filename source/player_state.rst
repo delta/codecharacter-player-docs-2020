@@ -153,7 +153,9 @@ Bot
 
 		For example, blasting the first bot ::
 
-			state.bots[0].blast()
+			auto &bot = state.bots.front();
+
+			bot.blast({15, 15});
 
 	.. cpp:function:: transform()
 
@@ -162,13 +164,13 @@ Bot
 		 * The current tile bot is in has no other units in it.
 		 * The current tile is not one of the spawn tiles of the players.
 
-		 If any of the above cases fails, the bot switches to IDLE state.
+		 If any of the above cases fails, the bot stays in TRANSFORM until the conditions are satisfied.
 
 		For example, transforming the first three bots ::
 
-			state.bots[0].tower({1.2, 3.1})
-			state.bots[0].tower({3.3, 4.7})
-			state.bots[0].tower({4.2, 4.9})
+			state.bots[0].transform()
+			state.bots[0].transform()
+			state.bots[0].transform()
 
 	.. cpp:function:: transform(DoubleVec2D transform_position)
 
@@ -178,19 +180,19 @@ Bot
 		 * The destination tile, which transform_position belongs to, is not one of the spawn tiles of the players
 		 * The destination tile is reachable
 
-		 If any of the above cases fails, the bot switches to IDLE state.
-
+		If any of the above cases fails, the bot stays in TRANSFORM until the conditions are satisfied.
+		
 		NOTE: The bot does not move and transform in the same turn. If it reaches the transform_position in one turn, it transforms
 		only in the next turn.
 
 		After reaching the transform_position, the bot transforms only if that tile has no other units in it. Else, it switches to
 		IDLE state.
 
-		For example, blasting the first bot ::
+		For example, transforming the first three bots ::
 
-			auto &bot = state.bots.front();
-
-			bot.blast({15, 15});
+			state.bots[0].transform({1.2, 3.1})
+			state.bots[0].transform({3.3, 4.7})
+			state.bots[0].transform({4.2, 4.9})
 
 
 Tower
