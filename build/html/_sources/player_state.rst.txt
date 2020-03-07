@@ -169,8 +169,8 @@ Bot
 		For example, transforming the first three bots ::
 
 			state.bots[0].transform()
-			state.bots[0].transform()
-			state.bots[0].transform()
+			state.bots[1].transform()
+			state.bots[2].transform()
 
 	.. cpp:function:: transform(DoubleVec2D transform_position)
 
@@ -191,8 +191,8 @@ Bot
 		For example, transforming the first three bots ::
 
 			state.bots[0].transform({1.2, 3.1})
-			state.bots[0].transform({3.3, 4.7})
-			state.bots[0].transform({4.2, 4.9})
+			state.bots[1].transform({3.3, 4.7})
+			state.bots[2].transform({4.2, 4.9})
 
 
 Tower
