@@ -346,7 +346,9 @@ reachable, the bot switches to IDLE state and does not move from current positio
 <p>NOTE: The bot does not move and blast in the same turn. If it reaches the blast_position in one turn, it blasts
 only in the next turn.</p>
 <p>For example, blasting the first bot</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">blast</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">bot</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="o">.</span><span class="n">front</span><span class="p">();</span>
+
+<span class="n">bot</span><span class="o">.</span><span class="n">blast</span><span class="p">({</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">});</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -360,12 +362,12 @@ only in the next turn.</p>
 <li>The current tile bot is in has no other units in it.</li>
 <li>The current tile is not one of the spawn tiles of the players.</li>
 </ul>
-<p>If any of the above cases fails, the bot switches to IDLE state.</p>
+<p>If any of the above cases fails, the bot stays in TRANSFORM until the conditions are satisfied.</p>
 </div></blockquote>
 <p>For example, transforming the first three bots</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tower</span><span class="p">({</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">})</span>
-<span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tower</span><span class="p">({</span><span class="mf">3.3</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">})</span>
-<span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tower</span><span class="p">({</span><span class="mf">4.2</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">()</span>
+<span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -380,16 +382,16 @@ only if,</p>
 <li>The destination tile, which transform_position belongs to, is not one of the spawn tiles of the players</li>
 <li>The destination tile is reachable</li>
 </ul>
-<p>If any of the above cases fails, the bot switches to IDLE state.</p>
 </div></blockquote>
+<p>If any of the above cases fails, the bot stays in TRANSFORM until the conditions are satisfied.</p>
 <p>NOTE: The bot does not move and transform in the same turn. If it reaches the transform_position in one turn, it transforms
 only in the next turn.</p>
 <p>After reaching the transform_position, the bot transforms only if that tile has no other units in it. Else, it switches to
 IDLE state.</p>
-<p>For example, blasting the first bot</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">bot</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="o">.</span><span class="n">front</span><span class="p">();</span>
-
-<span class="n">bot</span><span class="o">.</span><span class="n">blast</span><span class="p">({</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">});</span>
+<p>For example, transforming the first three bots</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">({</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">})</span>
+<span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">({</span><span class="mf">3.3</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">})</span>
+<span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">({</span><span class="mf">4.2</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
