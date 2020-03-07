@@ -185,7 +185,7 @@
 <dd><p>The map is a 2D array of <cite>TerrainType</cite> elements, which tell you if a particular type is <strong>LAND</strong>, <strong>WATER</strong>, or a <strong>FLAG</strong>. Remember, your units are not Jesus, and can’t walk on Water.</p>
 <p>If you’re unfamiliar with <cite>std::array</cite> in C++, simply use map like a standard 2D array in C.</p>
 <p>For example, to check if <cite>(4, 5)</cite> is not water, you could do</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">TerrainType</span><span class="p">::</span><span class="n">WATER</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">map</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">TerrainType</span><span class="p">::</span><span class="n">WATER</span><span class="p">)</span> <span class="p">{</span>
         <span class="o">...</span>
 <span class="p">}</span>
 </pre></div>
@@ -256,8 +256,8 @@
 </dd></dl>
 
 <dl class="member">
-<dt id="_CPPv2N5State14flag_positionsE">
-<span id="State::flag_positions__vector:Vec2D:"></span>vector&lt;Vec2D&gt; <code class="descclassname"></code><code class="descname">flag_positions</code><a class="headerlink" href="#_CPPv2N5State14flag_positionsE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv2N5State12flag_offsetsE">
+<span id="State::flag_offsets__vector:Vec2D:"></span>vector&lt;Vec2D&gt; <code class="descclassname"></code><code class="descname">flag_offsets</code><a class="headerlink" href="#_CPPv2N5State12flag_offsetsE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>A vector containing the center of offsets for the flag tiles on the map. You can iterate through the map and check for <cite>TerrainType::FLAG</cite>, or you can use this vector instead.</p>
 <p>For example, to make the first two bots each transform at the first two flag locations on the map, you would do</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">flag_offsets</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>

@@ -26,7 +26,7 @@ State
 
 		For example, to check if `(4, 5)` is not water, you could do ::
 
-			if (state.map[4][5] != TerrainType::WATER) {
+			if (state.map[4][5].type != TerrainType::WATER) {
 				...
 			}
 
@@ -76,7 +76,7 @@ State
 
 		A vector of the opponent's towers. Remember, you shouldn't modify this data, and you can't perform moves on an opponent unit.
 
-	.. cpp:member:: vector<Vec2D> flag_positions
+	.. cpp:member:: vector<Vec2D> flag_offsets
 
 		A vector containing the center of offsets for the flag tiles on the map. You can iterate through the map and check for `TerrainType::FLAG`, or you can use this vector instead.
 
