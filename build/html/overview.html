@@ -229,8 +229,7 @@ form of command variables that you set each turn.</p>
 <span class="c1">// Checking if the last tile of the map is valid to construct a tower on</span>
 <span class="c1">// Notice how constants like MAP_SIZE exist for your ease. See the complete</span>
 <span class="c1">// list of constants in the constants tab to the left</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">map</span><span class="p">[</span><span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">TerrainType</span><span class="o">::</span><span class="n">LAND</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">map</span><span class="p">[</span><span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">TerrainType</span><span class="o">::</span><span class="n">LAND</span><span class="p">)</span> <span class="p">{</span>
 <span class="p">}</span>
 
 <span class="c1">// Issuing a command to your second bot to move to position (3, 3) in map</span>
@@ -247,7 +246,7 @@ form of command variables that you set each turn.</p>
 <span class="c1">// Issuing a command to send a bot to a flag location and transforming</span>
 <span class="c1">// to a tower. Notice the usage of Vec2D, a utility class that&#39;s predefined.</span>
 <span class="c1">// All representations of positions and offsets in the game are DoubleVec2D.</span>
-<span class="n">DoubleVec2D</span> <span class="n">flag_position</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">flags</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">DoubleVec2D</span> <span class="n">flag_position</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">flag_offsets</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="n">state</span><span class="p">.</span><span class="n">bots</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">flag_position</span><span class="p">);</span>
 
 <span class="c1">// Issuing a specific command to all towers to blast</span>
@@ -255,7 +254,7 @@ form of command variables that you set each turn.</p>
 <span class="c1">// Notice that range based for-loops can be used.</span>
 <span class="c1">// Remember to add the &amp; while iterating, otherwise you&#39;ll be modifying</span>
 <span class="c1">// be modifying a copy of the tower.</span>
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">tower</span> <span class="p">:</span> <span class="n">towers</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">tower</span> <span class="p">:</span> <span class="n">state</span><span class="p">.</span><span class="n">towers</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">tower</span><span class="p">.</span><span class="n">blast</span><span class="p">();</span>
 <span class="p">}</span>
 
