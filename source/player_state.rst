@@ -321,3 +321,5 @@ the nearest position where there are no bots or towers ::
 		// Returns any position with actor count of 0 irrespective of terrain
 		return (actor_count == 0); 
 	}
+
+.. note :: Returns ``Vec2D::null`` if no match is found, which is {-1, -1}
