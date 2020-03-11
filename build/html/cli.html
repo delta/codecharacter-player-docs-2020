@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Code Character’s Player documentation! &mdash; Codecharacter Player Documentation  documentation</title>
+  <title>CLI &mdash; Codecharacter Player Documentation  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Codecharacter Player Documentation  documentation" href="#"/>
-        <link rel="next" title="Overview" href="overview.html"/> 
+    <link rel="top" title="Codecharacter Player Documentation  documentation" href="index.html"/>
+        <link rel="prev" title="Tips and Tricks" href="tips.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -57,7 +57,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Codecharacter Player Documentation
+            <a href="index.html" class="icon icon-home"> Codecharacter Player Documentation
           
 
           
@@ -87,7 +87,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="default_code.html">Default Code</a></li>
@@ -95,7 +95,16 @@
 <li class="toctree-l1"><a class="reference internal" href="doublevec2d.html">DoubleVec2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="player_state.html">Player State</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux-and-darwin">Linux and Darwin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-logs">Checking logs</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -110,7 +119,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Codecharacter Player Documentation</a>
+          <a href="index.html">Codecharacter Player Documentation</a>
         
       </nav>
 
@@ -138,15 +147,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Welcome to Code Character’s Player documentation!</li>
+      <li>CLI</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/cli.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -159,28 +168,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-code-character-s-player-documentation">
-<h1>Welcome to Code Character’s Player documentation!<a class="headerlink" href="#welcome-to-code-character-s-player-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rules.html">Rules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="default_code.html">Default Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doublevec2d.html">DoubleVec2D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="player_state.html">Player State</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cli">
+<h1>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+<li>Docker</li>
 </ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://code.pragyan.org/binaries/">Download link</a>  or
+<a class="reference external" href="https://github.com/delta/codecharacter-cli/releases/tag/1.0.0">Github releases</a></p>
+<div class="section" id="linux-and-darwin">
+<h3>Linux and Darwin<a class="headerlink" href="#linux-and-darwin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>chmod +x path/to/binary
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>path/to/binary <span class="o">[</span> -p PORT <span class="o">]</span> <span class="o">[</span> -m MAP_FILE <span class="o">]</span> PLAYER_1_CODE PLAYER_2_CODE
+</pre></div>
+</div>
+<p>This will compile, execute the player code and serve it in the port given by user (Default: 3000)</p>
+</div>
+<div class="section" id="checking-logs">
+<h2>Checking logs<a class="headerlink" href="#checking-logs" title="Permalink to this headline">¶</a></h2>
+<p>Player logs can be viewed in browser console</p>
+</div>
 </div>
 
 
@@ -193,8 +210,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="tips.html" class="btn btn-neutral" title="Tips and Tricks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
