@@ -12,6 +12,7 @@ Welcome to Code Character's Player documentation!
    doublevec2d.rst
    player_state.rst
    tips.rst
+   cli.rst
 
 
 Indices and tables
