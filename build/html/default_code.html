@@ -212,7 +212,7 @@
 
         <span class="c1">// State has a vector that has the locations of flag locations on the</span>
         <span class="c1">// map. A bot asked to move to a location will automatically go</span>
-        <span class="c1">// there using the shortest path found and start mining for gold.</span>
+        <span class="c1">// there using the shortest path found.</span>
         <span class="n">bot</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">flag_offsets</span><span class="p">[</span><span class="n">used_bots</span><span class="p">]);</span>
         <span class="n">used_bots</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
@@ -229,7 +229,7 @@
 
     <span class="c1">// Other than blasting and moving, bots can also transform into towers</span>
     <span class="c1">// Let&#39;s try to transform all of the remaining bots near the other end of</span>
-    <span class="c1">// the map i.e., (MAP_SIZE - 1, MAP_SIZE - 1) Note that you cannot construct</span>
+    <span class="c1">// the map i.e., (MAP_SIZE - 1, MAP_SIZE - 1) Note that you cannot construct or</span>
     <span class="c1">// / move to coordinates where either x = MAP_SIZE or y = MAP_SIZE</span>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">MAP_SIZE</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
 
