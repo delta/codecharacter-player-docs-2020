@@ -54,7 +54,7 @@ Here's the default code that you're provided on first login, in case you need it
 	
 	        // State has a vector that has the locations of flag locations on the
 	        // map. A bot asked to move to a location will automatically go
-	        // there using the shortest path found and start mining for gold.
+	        // there using the shortest path found.
 	        bot.move(state.flag_offsets[used_bots]);
 	        used_bots++;
 	    }
@@ -71,7 +71,7 @@ Here's the default code that you're provided on first login, in case you need it
 	
 	    // Other than blasting and moving, bots can also transform into towers
 	    // Let's try to transform all of the remaining bots near the other end of
-	    // the map i.e., (MAP_SIZE - 1, MAP_SIZE - 1) Note that you cannot construct
+	    // the map i.e., (MAP_SIZE - 1, MAP_SIZE - 1) Note that you cannot construct or
 	    // / move to coordinates where either x = MAP_SIZE or y = MAP_SIZE
 	    int x = MAP_SIZE - 2, y = MAP_SIZE - 2;
 	
