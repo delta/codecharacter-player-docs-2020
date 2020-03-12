@@ -215,6 +215,10 @@ Tower
 
 		The tower's curent HP. Note that the max value of hp can be accessed from `MAX_TOWER_HP`.
 
+	.. cpp:member:: uint64_t age
+
+		The tower's curent age. Number of turns this tower has been alive for.
+
 	.. cpp:member:: TowerState state
 
 		The current state of the tower. This member tells you what the tower is doing right now, and has values **IDLE**, **BLAST**, **DEAD**.
