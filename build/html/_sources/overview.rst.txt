@@ -137,12 +137,27 @@ which you can test your code. Additionally, you can also try testing your code a
 
 You can run code on three different maps, against either `your` own code, or against one of our preprogrammed AIs.
 
+.. figure:: _static/self_match.png
+   :width: 400px
+   :alt: Self/AI Match
+
 Once you’re satisfied with your code and want to compete on the leaderboard, hit :guilabel:`Submit Code`. This will allow you to 
-challenge anyone on the leaderboard with the submitted code. To challenge another player, simply click the challenge button
-next to their nickname on the leaderboard. You can keep submitting and updating your code whenever you want.
+challenge anyone on the leaderboard with the submitted code.
+
+.. figure:: _static/submit.png
+   :width: 350px
+   :alt: Submit button
+
+To challenge another player, simply click the challenge (sword icon) 
+button next to their nickname on the leaderboard. You can keep submitting and updating your code whenever you want.
+
+.. figure:: _static/challenge.png
+   :width: 800px
+   :alt: Challenge button
 
 Note that once you `submit code`, anyone can challenge you at anytime, and a match will automatically be simulated between you
 and the opposing player. You will receive a notification once the match ends, and you can view it in the :guilabel:`Battle TV`.
+Click on any of the maps below each match to see the match.
 
 Players are divided into two divisions
 
@@ -150,10 +165,10 @@ Players are divided into two divisions
 * Division 2 - Rating <= 1700
 
 Every 6 hours, every Division 1 player is matched with every other player in the same division. So, it's better to keep your 
-best code submitted. (NOTE: This feature will be available from 12am IST 10th March, 2020)
+best code submitted.
 
-You can also save different versions of your code by using the :guilabel:`Commits Tab` on the dashboard. A match can be initiated by you 
-against your own previous code version.
+You can also save different versions of your code by using the commit button on the top bar. Using the :guilabel:`Commits Tab` on the 
+dashboard. A match can be initiated by you against your own previous code version.
 
 For each of your matches, 5 games are played on 5 different maps. You can only see the first three games, the last two are mystery 
 maps! If you win the best of five, you win the match and your rating will increase. Challenge and defeat players with higher ratings
