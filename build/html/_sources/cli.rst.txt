@@ -41,3 +41,40 @@ Checking logs
 -------------------
 
 Player logs can be viewed in browser console
+=======
+=================
+Command Line Tool
+=================
+
+We are providing you with a command line tool to run your code locally and check the results, instead of having
+to wait in the queue for your processes.
+
+
+Prerequisites
+=============
+
+You need to have Docker CE installed
+
+The entire download takes around 1.5GB of data
+
+Installation
+============
+
+Download the binary for your architecture from here:
+
+.. _Executables: https://code.pragyan.org/binaries/
+
+Upon downloading, run ``chmod +x codecharacter`` to make it an executable.
+
+
+Running
+=======
+
+``./codecharacter player_code_1.cpp player_code_2.cpp``
+Here ``player_code_1.cpp`` and ``player_code_2.cpp`` are the codes of two players.
+
+By default, the executable has a map. You can change it by passing a map file
+
+``./codecharacter player_code_1.cpp player_code_2.cpp -m map.txt``
+
+map.txt contains 30 X 30 grid with each character space separated.

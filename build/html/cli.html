@@ -105,6 +105,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#checking-logs">Checking logs</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#player-logs-can-be-viewed-in-browser-console">Player logs can be viewed in browser console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#running">Running</a></li>
 </ul>
 
             
@@ -196,8 +200,30 @@
 </div>
 <div class="section" id="checking-logs">
 <h2>Checking logs<a class="headerlink" href="#checking-logs" title="Permalink to this headline">¶</a></h2>
-<p>Player logs can be viewed in browser console</p>
 </div>
+</div>
+<div class="section" id="player-logs-can-be-viewed-in-browser-console">
+<h1>Player logs can be viewed in browser console<a class="headerlink" href="#player-logs-can-be-viewed-in-browser-console" title="Permalink to this headline">¶</a></h1>
+<p>We are providing you with a command line tool to run your code locally and check the results, instead of having
+to wait in the queue for your processes.</p>
+</div>
+<div class="section" id="id1">
+<h1>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>You need to have Docker CE installed</p>
+<p>The entire download takes around 1.5GB of data</p>
+</div>
+<div class="section" id="id2">
+<h1>Installation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>Download the binary for your architecture from here:</p>
+<p>Upon downloading, run <code class="docutils literal"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">codecharacter</span></code> to make it an executable.</p>
+</div>
+<div class="section" id="running">
+<h1>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">./codecharacter</span> <span class="pre">player_code_1.cpp</span> <span class="pre">player_code_2.cpp</span></code>
+Here <code class="docutils literal"><span class="pre">player_code_1.cpp</span></code> and <code class="docutils literal"><span class="pre">player_code_2.cpp</span></code> are the codes of two players.</p>
+<p>By default, the executable has a map. You can change it by passing a map file</p>
+<p><code class="docutils literal"><span class="pre">./codecharacter</span> <span class="pre">player_code_1.cpp</span> <span class="pre">player_code_2.cpp</span> <span class="pre">-m</span> <span class="pre">map.txt</span></code></p>
+<p>map.txt contains 30 X 30 grid with each character space separated.</p>
 </div>
 
 
