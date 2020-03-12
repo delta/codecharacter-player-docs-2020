@@ -105,6 +105,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">Tips and Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html#player-logs-can-be-viewed-in-browser-console">Player logs can be viewed in browser console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html#id1">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html#id2">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html#running">Running</a></li>
 </ul>
 
             
@@ -525,6 +529,29 @@ tasks and keeping track of their progress</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Returns <code class="docutils literal"><span class="pre">Tower::null</span></code> if no tower exists with the given tower id . <code class="docutils literal"><span class="pre">Tower::null</span></code> is a tower constructed with an id of <code class="docutils literal"><span class="pre">-1</span></code></p>
+</div>
+<dl class="function">
+<dt id="_CPPv218getTowerByPositionR5State11DoubleVec2D">
+<span id="getTowerByPosition__StateR.DoubleVec2D"></span><code class="descclassname"></code><code class="descname">getTowerByPosition</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, DoubleVec2D <em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218getTowerByPositionR5State11DoubleVec2D" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<p>Returns the corresponding <code class="docutils literal"><span class="pre">Tower</span></code> by reference at a given position, if it exists. If there is no tower at the given position,
+<code class="docutils literal"><span class="pre">Tower::null</span></code> is returned. This tower can belong to the enemy as well. It can be used in the following way</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">tower</span> <span class="o">=</span> <span class="n">getTowerByPosition</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="p">{</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">});</span> <span class="o">//</span> <span class="n">Returns</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">tower</span> <span class="n">at</span> <span class="n">that</span> <span class="n">position</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">tower</span> <span class="o">!=</span> <span class="n">Tower</span><span class="p">::</span><span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">tower</span><span class="o">.</span><span class="n">blast</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="_CPPv221getOffsetFromPositionR5State11DoubleVec2D">
+<span id="getOffsetFromPosition__StateR.DoubleVec2D"></span><code class="descclassname"></code><code class="descname">getOffsetFromPosition</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv25State" title="State">State</a> &amp;<em>state</em>, DoubleVec2D <em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221getOffsetFromPositionR5State11DoubleVec2D" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<p>Returns the offset corresponding to a given position. It can be used in the following way</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">position</span> <span class="o">=</span> <span class="p">{</span><span class="mf">11.8</span><span class="p">,</span> <span class="mf">13.2</span><span class="p">};</span> <span class="o">//</span> <span class="n">Returns</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">tower</span> <span class="k">with</span> <span class="n">actor</span> <span class="nb">id</span> <span class="mi">12</span>
+<span class="n">auto</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">getOffsetFromPosition</span><span class="p">(</span><span class="n">position</span><span class="p">);</span> <span class="o">//</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">}</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="bonus">

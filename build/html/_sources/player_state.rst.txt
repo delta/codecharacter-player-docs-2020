@@ -303,6 +303,24 @@ Returns the corresponding ``Tower`` by reference when given the tower's id. It c
 
 .. note :: Returns ``Tower::null`` if no tower exists with the given tower id . ``Tower::null`` is a tower constructed with an id of ``-1``
 
+.. cpp:function:: getTowerByPosition(State &state, DoubleVec2D position)
+
+Returns the corresponding ``Tower`` by reference at a given position, if it exists. If there is no tower at the given position, 
+``Tower::null`` is returned. This tower can belong to the enemy as well. It can be used in the following way ::  
+
+	auto &tower = getTowerByPosition(state, {2.2, 2.1}); // Returns reference to tower at that position
+	if (tower != Tower::null) {
+		tower.blast();
+	}
+
+.. cpp:function:: getOffsetFromPosition(State &state, DoubleVec2D position)
+
+Returns the offset corresponding to a given position. It can be used in the following way ::  
+
+	auto position = {11.8, 13.2}; // Returns reference to tower with actor id 12
+	auto offset = getOffsetFromPosition(position); // offset = {11, 13}
+
+
 Bonus
 ======
 
