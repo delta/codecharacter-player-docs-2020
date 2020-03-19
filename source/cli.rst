@@ -60,6 +60,16 @@ An example with a 5 X 5 Map would be,
 
 Note: End the file with a newline
 
+To render a game which has been executed already,
+
+.. code-block:: bash
+
+        path/to/binary -r [ -p PORT ] LOG_DIRECTORY 
+
+This will render the game log files in LOG_DIRECTORY
+Given directory must contain the following files : game.log, player_1.dlog, player_2.dlog
+
+
 Checking logs
 -------------------
 
