@@ -138,6 +138,15 @@ which you can test your code. Additionally, you can also try testing your code a
 
 You can run code on three different maps, against either `your` own code, or against one of our preprogrammed AIs.
 
+With the help of **Quest mode** and its associated levels you can learn the game from absolute scratch.
+
+* There are 5 levels in total with increasing difficulty.
+* Level 1 is for absolute beginners.
+* Each level has different bots and has description of game play to facilitate understanding of the game.
+* There is a 3 star rating for each level which lets you know how competitive your code was against that particular bot.
+* You can go to next level only on completing all the previous levels.
+* Its highly recommended to take up this quest mode challenge which is articulated with atmost precision, to understand the game before competing.
+
 Once you’re satisfied with your code and want to compete on the leaderboard, hit :guilabel:`Submit Code`. This will allow you to 
 challenge anyone on the leaderboard with the submitted code. To challenge another player, simply click the challenge button
 next to their nickname on the leaderboard. You can keep submitting and updating your code whenever you want.
