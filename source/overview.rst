@@ -36,11 +36,11 @@ Game Rules
 Codecharacter is a game of strategic resource management. The objective of the game is to occupy the flag area on the
 map and defend it from the enemy troops.
 
-Your troops consists of **Bots** and **Towers**.
+Your troop consists of **Bots** and **Towers**.
 
 **Bot** - Unit that can move across the map and attack opponent units by blasting. A bot can also transform to a tower.
 
-**Tower** - Unit that is stationary but can suicide blast and is much stronger and powerful than a bot.
+**Tower** - Stationary and more powerful units that can act as a barrier to stop bots from moving through.
 
 .. figure:: _static/actors.png
    :width: 800px
@@ -49,14 +49,14 @@ Your troops consists of **Bots** and **Towers**.
 Towers occupy a 1x1 unit square area on the map and bots cannot move through a tower. Towers are created when a bot transforms 
 into one.
 
-The map has two types of terrain : **Land**, **Water** and **Flag**. Water terrain is inaccessible to bots.
+The map has three types of terrain : **Land**, **Water** and **Flag**. Water terrain is inaccessible to bots.
 Land or flag terrain that is occupied by a tower is also not accessible to bots.
 
 .. figure:: _static/tiles.png
    :width: 800px
    :alt: Tiles
 
-Tower can only be constructed on land. A specific number of bots are spawned every turn.
+Tower can only be constructed on land/flag. A specific number of bots are spawned every turn.
 
 This is how a typical game map looks like
 
@@ -70,7 +70,7 @@ You are given a fixed number of instructions you can execute every turn. Exceedi
 Exceeding the total instructions limit by an excessive amount makes you lose the entire match, so ensure that you keep your code
 as short and efficient as possible!
 
-.. warning:: This is probably enough for you to get a start, but you might want to take the time to read the complete rules in the Rules section.
+.. note:: This is probably enough for you to get a start, but you might want to take the time to read the complete rules in the Rules section.
 
 Code Guide
 ----------
@@ -92,8 +92,7 @@ form of command variables that you set each turn.
 	// Checking if the last tile of the map is valid to construct a tower on
 	// Notice how constants like MAP_SIZE exist for your ease. See the complete
 	// list of constants in the constants tab to the left
-	if (state.map[MAP_SIZE - 1][MAP_SIZE - 1] == TerrainType::LAND) {
-		...
+	if (state.map[MAP_SIZE - 1][MAP_SIZE - 1].type == TerrainType::LAND) {
 	}
 
 	// Issuing a command to your second bot to move to position (3, 3) in map
@@ -110,7 +109,7 @@ form of command variables that you set each turn.
 	// Issuing a command to send a bot to a flag location and transforming
 	// to a tower. Notice the usage of Vec2D, a utility class that's predefined.
 	// All representations of positions and offsets in the game are DoubleVec2D.
-	DoubleVec2D flag_position = state.flags[0];
+	DoubleVec2D flag_position = state.flag_offsets[0];
 	state.bots[0].transform(flag_position);
 
 	// Issuing a specific command to all towers to blast
@@ -118,7 +117,7 @@ form of command variables that you set each turn.
 	// Notice that range based for-loops can be used.
 	// Remember to add the & while iterating, otherwise you'll be modifying
 	// be modifying a copy of the tower.
-	for (auto& tower : towers) {
+	for (auto& tower : state.towers) {
 		tower.blast();
 	}
 
@@ -138,12 +137,27 @@ which you can test your code. Additionally, you can also try testing your code a
 
 You can run code on three different maps, against either `your` own code, or against one of our preprogrammed AIs.
 
+.. figure:: _static/self_match.png
+   :width: 400px
+   :alt: Self/AI Match
+
 Once you’re satisfied with your code and want to compete on the leaderboard, hit :guilabel:`Submit Code`. This will allow you to 
-challenge anyone on the leaderboard with the submitted code. To challenge another player, simply click the challenge button
-next to their nickname on the leaderboard. You can keep submitting and updating your code whenever you want.
+challenge anyone on the leaderboard with the submitted code.
+
+.. figure:: _static/submit.png
+   :width: 350px
+   :alt: Submit button
+
+To challenge another player, simply click the challenge (sword icon) 
+button next to their nickname on the leaderboard. You can keep submitting and updating your code whenever you want.
+
+.. figure:: _static/challenge.png
+   :width: 800px
+   :alt: Challenge button
 
 Note that once you `submit code`, anyone can challenge you at anytime, and a match will automatically be simulated between you
 and the opposing player. You will receive a notification once the match ends, and you can view it in the :guilabel:`Battle TV`.
+Click on any of the maps below each match to see the match.
 
 Players are divided into two divisions
 
@@ -151,10 +165,10 @@ Players are divided into two divisions
 * Division 2 - Rating <= 1700
 
 Every 6 hours, every Division 1 player is matched with every other player in the same division. So, it's better to keep your 
-best code submitted. (NOTE: This feature will be available from 12am IST 10th March, 2020)
+best code submitted.
 
-You can also save different versions of your code by using the :guilabel:`Commits Tab` on the dashboard. A match can be initiated by you 
-against your own previous code version.
+You can also save different versions of your code by using the commit button on the top bar. Using the :guilabel:`Commits Tab` on the 
+dashboard. A match can be initiated by you against your own previous code version.
 
 For each of your matches, 5 games are played on 5 different maps. You can only see the first three games, the last two are mystery 
 maps! If you win the best of five, you win the match and your rating will increase. Challenge and defeat players with higher ratings

@@ -26,7 +26,7 @@ State
 
 		For example, to check if `(4, 5)` is not water, you could do ::
 
-			if (state.map[4][5] != TerrainType::WATER) {
+			if (state.map[4][5].type != TerrainType::WATER) {
 				...
 			}
 
@@ -76,7 +76,7 @@ State
 
 		A vector of the opponent's towers. Remember, you shouldn't modify this data, and you can't perform moves on an opponent unit.
 
-	.. cpp:member:: vector<Vec2D> flag_positions
+	.. cpp:member:: vector<Vec2D> flag_offsets
 
 		A vector containing the center of offsets for the flag tiles on the map. You can iterate through the map and check for `TerrainType::FLAG`, or you can use this vector instead.
 
@@ -111,9 +111,9 @@ Bot
 
 		The bot's curent HP. Note that the max value of hp can be accessed from `MAX_BOT_HP`.
 
-	.. cpp:member:: SoldierState state
+	.. cpp:member:: BotState state
 
-		The current state of the soldier. This member tells you what the soldier is doing right now, and has values **IDLE**, 
+		The current state of the bot. This member tells you what the soldier is doing right now, and has values **IDLE**, 
 		**BLAST**, **TRANSFORM**, **ATTACK** AND **DEAD**.
 
 		For example, to check for all your bots who are currently moving, you could do ::
@@ -153,7 +153,9 @@ Bot
 
 		For example, blasting the first bot ::
 
-			state.bots[0].blast()
+			auto &bot = state.bots.front();
+
+			bot.blast({15, 15});
 
 	.. cpp:function:: transform()
 
@@ -162,13 +164,13 @@ Bot
 		 * The current tile bot is in has no other units in it.
 		 * The current tile is not one of the spawn tiles of the players.
 
-		 If any of the above cases fails, the bot switches to IDLE state.
+		 If any of the above cases fails, the bot stays in TRANSFORM until the conditions are satisfied.
 
 		For example, transforming the first three bots ::
 
-			state.bots[0].tower({1.2, 3.1})
-			state.bots[0].tower({3.3, 4.7})
-			state.bots[0].tower({4.2, 4.9})
+			state.bots[0].transform()
+			state.bots[1].transform()
+			state.bots[2].transform()
 
 	.. cpp:function:: transform(DoubleVec2D transform_position)
 
@@ -178,19 +180,19 @@ Bot
 		 * The destination tile, which transform_position belongs to, is not one of the spawn tiles of the players
 		 * The destination tile is reachable
 
-		 If any of the above cases fails, the bot switches to IDLE state.
-
+		If any of the above cases fails, the bot stays in TRANSFORM until the conditions are satisfied.
+		
 		NOTE: The bot does not move and transform in the same turn. If it reaches the transform_position in one turn, it transforms
 		only in the next turn.
 
 		After reaching the transform_position, the bot transforms only if that tile has no other units in it. Else, it switches to
 		IDLE state.
 
-		For example, blasting the first bot ::
+		For example, transforming the first three bots ::
 
-			auto &bot = state.bots.front();
-
-			bot.blast({15, 15});
+			state.bots[0].transform({1.2, 3.1})
+			state.bots[1].transform({3.3, 4.7})
+			state.bots[2].transform({4.2, 4.9})
 
 
 Tower
@@ -212,6 +214,10 @@ Tower
 	.. cpp:member:: int64_t hp
 
 		The tower's curent HP. Note that the max value of hp can be accessed from `MAX_TOWER_HP`.
+
+	.. cpp:member:: uint64_t age
+
+		The tower's curent age. Number of turns this tower has been alive for.
 
 	.. cpp:member:: TowerState state
 
@@ -264,9 +270,8 @@ Something useful for you when implementing your logic would be to find the neare
 
 .. cpp:function:: findNearestFlagPosition( const State &state, DoubleVec2D position)
 
-Returns the nearest flag offset from a given
-		
-This function can be used by bots to find the closest flag into which they can move into ::
+Returns the nearest flag position from a given position. This function can be used by bots to find the closest flag to which they 
+can move to ::
 
 	auto &bot = state.bots[0];
 	auto nearest_flag = findNearestFlagPosition(state, bot.position);
@@ -274,25 +279,10 @@ This function can be used by bots to find the closest flag into which they can m
 	// Bot finds the nearest flag and moves into the flag area
 	bot.move(nearest_flag)
 
-.. cpp:function::  findNearestFreePosition( const State &state, DoubleVec2D position)
-
-Returns the nearest free position ( A position on which a tower can be build )
-
-This can be used to find locations to transform into towers to control an area ::
-
-	auto &bot = state.bots[0];
-	auto nearest_free_position = findNearestFreePosition(state, bot.position);
-	
-	// The bot moves into the nearest free position and transforms into a tower
-	bot.transform(nearest_free_position)
-
-This is useful to fortify an area after gaining control over it
-
 .. cpp:function::  getBotById(State &state, int64_t bot_id)
 
-Returns a ``Bot`` by reference when provided an actor id
-
-This comes in handy when assigning different bots different tasks and keeping track of their progress
+Returns the corresponding ``Bot`` by reference when given the bot's id. This comes in handy when assigning different bots different 
+tasks and keeping track of their progress
 
 It can be used in the following way ::
 
@@ -305,33 +295,53 @@ It can be used in the following way ::
 	auto &bot_move = getBotById(state, 3); // Bot with actor id 3
 	bot_move.move(DoubleVec2D(5, 5)); // Making this bot move into a specific position like a flag
 
-``NOTE`` : Returns ``Bot::null`` if no bot exists with the given actor id. ``Bot::null`` is basically a bot constructed with an id of ``-1``
+.. note:: Returns ``Bot::null`` if no bot exists with the given bot id. ``Bot::null`` is basically a bot constructed with an id of
+ ``-1``
 
 .. cpp:function:: getTowerById(State &state, int64_t tower_id)
 
-Returns a ``Tower`` by reference given an actor id
-
-It can be used in the following way ::  
+Returns the corresponding ``Tower`` by reference when given the tower's id. It can be used in the following way ::  
 
 	auto &tower_blast = getTowerById(state, 12); // Returns reference to tower with actor id 12
 	tower_blast.blast();
 
-``NOTE`` : Returns ``Tower::null`` if no tower exists with the given tower id . ``Tower::null`` is a tower constructed with an id of ``-1``
+.. note :: Returns ``Tower::null`` if no tower exists with the given tower id . ``Tower::null`` is a tower constructed with an id of ``-1``
+
+.. cpp:function:: getTowerByPosition(State &state, DoubleVec2D position)
+
+Returns the corresponding ``Tower`` by reference at a given position, if it exists. If there is no tower at the given position, 
+``Tower::null`` is returned. This tower can belong to the enemy as well. It can be used in the following way ::  
+
+	auto &tower = getTowerByPosition(state, {2.2, 2.1}); // Returns reference to tower at that position
+	if (tower != Tower::null) {
+		tower.blast();
+	}
+
+.. cpp:function:: getOffsetFromPosition(State &state, DoubleVec2D position)
+
+Returns the offset corresponding to a given position. It can be used in the following way ::  
+
+	auto position = {11.8, 13.2}; // Returns reference to tower with actor id 12
+	auto offset = getOffsetFromPosition(position); // offset = {11, 13}
+
 
 Bonus
 ======
 
 .. cpp:function:: findNearestOffset(const State &state, Vec2D position, std::function<bool(TerrainType type, uint64_t position_count)>)
 
-	A general purpose function with which you can find the nearest target position from the source position which satisfies a condition defined by you. 
+A general purpose function with which you can find the nearest target position from the source position which satisfies a condition 
+defined by you. 
 
-	``NOTE`` : Each offset in the map will be checked against this function which is passed the terrain type of that offset and the total number of bots or towers in that offset  
+Each offset in the map will be checked against this function which is passed the terrain type of that offset and the total
+number of bots or towers in that offset  
 
-	 It may look a bit scary but can be utilized using this function using C++ Lambda functions.
-	 
-	 Let us look at an example where we find the nearest position where there are no bots or towers ::
+It may look a bit scary but can be utilized using this function using C++ Lambda functions. Let us look at an example where we find 
+the nearest position where there are no bots or towers ::
 
-		auto nearest_desolate_position = [](TerrainType terrain, uint64_t actor_count){
-			// Returns any position with actor count of 0 irrespective of terrain
-			return (actor_count == 0); 
-		}
+	auto nearest_desolate_position = [](TerrainType terrain, uint64_t actor_count){
+		// Returns any position with actor count of 0 irrespective of terrain
+		return (actor_count == 0); 
+	}
+
+.. note :: Returns ``Vec2D::null`` if no match is found, which is {-1, -1}

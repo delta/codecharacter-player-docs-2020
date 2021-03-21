@@ -59,7 +59,8 @@ html_sidebars = {
         'constants.rst',
         'doublevec2d.rst',
         'player_state.rst',
-        'tips.rst'
+        'tips.rst',
+        'cli.rst'
     ]
 }
 
