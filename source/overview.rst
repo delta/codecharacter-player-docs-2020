@@ -40,7 +40,7 @@ Your troop consists of **Bots** and **Towers**.
 
 **Bot** - Unit that can move across the map and attack opponent units by blasting. A bot can also transform to a tower.
 
-**Tower** - Stationary and more powerful units that can suicide blast and act as a barrier to bots from moving through.
+**Tower** - Stationary and more powerful units that can act as a barrier to stop bots from moving through.
 
 .. figure:: _static/actors.png
    :width: 800px
