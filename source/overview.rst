@@ -135,9 +135,7 @@ Ultimately, Codecharacter is a game of competetion! The objective is to challeng
 your way to the top of the leaderboard. To help you along this process, we offer pre-programmed AIs, against
 which you can test your code. Additionally, you can also try testing your code against itself!
 
-You can run code on three different maps, against either `your` own code, or against one of our preprogrammed AIs.
-
-.. figure:: _static/self_match.png
+.. figure:: _static/questmode.jpeg
    :width: 400px
    :alt: Self/AI Match
 With the help of **Quest mode** and its associated levels you can learn the game from absolute scratch.
