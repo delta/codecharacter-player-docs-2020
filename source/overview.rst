@@ -132,14 +132,19 @@ Competetion Guide
 -----------------
 
 Ultimately, Codecharacter is a game of competetion! The objective is to challenge other players and fight
-your way to the top of the leaderboard. To help you along this process, we offer pre-programmed AIs, against
-which you can test your code. Additionally, you can also try testing your code against itself!
+your way to the top of the leaderboard.
 
-You can run code on three different maps, against either `your` own code, or against one of our preprogrammed AIs.
-
-.. figure:: _static/self_match.png
+.. figure:: _static/questmode.jpeg
    :width: 400px
    :alt: Self/AI Match
+With the help of **Quest mode** and its associated levels you can learn the game from absolute scratch.
+
+* There are 5 levels in total with increasing difficulty.
+* Level 1 is for absolute beginners.
+* Each level has different bots and has description of game play to facilitate understanding of the game.
+* There is a 3 star rating for each level which lets you know how competitive your code was against that particular bot.
+* You can go to next level only on completing all the previous levels.
+* Its highly recommended to take up this quest mode challenge which is articulated with atmost precision, to understand the game before competing.
 
 Once you’re satisfied with your code and want to compete on the leaderboard, hit :guilabel:`Submit Code`. This will allow you to 
 challenge anyone on the leaderboard with the submitted code.
