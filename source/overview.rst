@@ -132,8 +132,7 @@ Competetion Guide
 -----------------
 
 Ultimately, Codecharacter is a game of competetion! The objective is to challenge other players and fight
-your way to the top of the leaderboard. To help you along this process, we offer pre-programmed AIs, against
-which you can test your code. Additionally, you can also try testing your code against itself!
+your way to the top of the leaderboard.
 
 .. figure:: _static/questmode.jpeg
    :width: 400px
